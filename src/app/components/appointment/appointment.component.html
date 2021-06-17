@@ -27,6 +27,8 @@
         <th scope="col">id </th>
         <th scope="col">motif</th>
         <th scope="col">date demande</th>
+        <th scope="col">date rendez-vous</th>
+
         <th scope="col">status</th>
       </tr>
     </thead>
@@ -35,6 +37,7 @@
         <td>{{appointment.id}}</td>
         <td>{{appointment.motif}}</td>
         <td>{{ appointment.dateDemande | date:'short' }}</td>
+        <td>{{ appointment.dateRdv | date:'short' }}</td>
         <td>{{appointment.status}}</td>
 
 
