@@ -57,6 +57,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InterceptorService } from "./components/loading/interceptor.service";
 import { AppointmentComponent } from "./components/appointment/appointment.component";
+import { VirementMultipleTableComponent } from './components/virement-multiple-table/virement-multiple-table.component';
 
 @NgModule({
 
@@ -70,6 +71,7 @@ import { AppointmentComponent } from "./components/appointment/appointment.compo
     VirementsTabComponent,
     VirementMultipleComponent,
     AppointmentComponent,
+    VirementMultipleTableComponent,
 
   ],
 

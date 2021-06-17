@@ -1,0 +1,22 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+      
+
+            <h4 class=" card-title"> Table des virements multiples</h4>
+          </div>
+          <div class=" card-body">
+            <ng2-smart-table [settings]="settings"[source]="this.vmb"></ng2-smart-table>
+
+
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+            

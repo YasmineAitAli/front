@@ -1,11 +1,20 @@
+import { BeneficiaireModule } from "src/app/beneficiaire/module/beneficiaire/beneficiaire.module";
 import { Vmb } from "./vmb";
 
 export interface VirementMultiple {
     
+    
         debiteur: {
-            id: number
+            id: number,
+            numero: string,
+            solde: number,
         },
         sommeEnv: number,
-        vmb: Vmb
+        vmb: [
+            {
+                beneficiaire: BeneficiaireModule
+                montant: number
+            }
+        ]
     }
 
