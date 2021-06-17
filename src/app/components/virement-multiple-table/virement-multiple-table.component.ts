@@ -87,10 +87,11 @@ export class VirementMultipleTableComponent implements OnInit {
   ngOnInit(): void {
     this.getVirementMultiple()
   }
+  clientId:string=sessionStorage.getItem('currentClientId')
 
   vmb:VirementMultiple[]
   getVirementMultiple(){
-    this.virementMultipleService.getVirementMultiple().subscribe(
+    this.virementMultipleService.getVirementById(this.clientId).subscribe(
       (response:VirementMultiple[]) => {
         this.vmb = response
       },
