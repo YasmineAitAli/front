@@ -50,7 +50,7 @@ export class AccountSummaryComponent implements OnInit {
   }
 
   successAlertNotification(){
-    console.log("dkhltalert")
+
     Swal.fire('Hi', 'Congrats! operation successfull', 'success')
   }
 
@@ -104,7 +104,12 @@ export class AccountSummaryComponent implements OnInit {
                   
                 },
                 (error: HttpErrorResponse) => {
-                  alert(error.message);
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Montant insufisant',
+                    
+                  })
                 
                 
                 }

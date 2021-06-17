@@ -442,6 +442,11 @@ compterfound=false;
                   res => {
                     console.log(res);
                     console.log('fkhaaaaaaaater j3iidii')
+                    this.swalWithBootstrapButtons.fire(
+                      'Transaction Envoyé!',
+                      '',
+                      'success'
+                    )
                   },
                   (error:HttpErrorResponse)=>{
                     console.log(error)
@@ -455,11 +460,7 @@ compterfound=false;
             )
             
 
-            this.swalWithBootstrapButtons.fire(
-              'Transaction Envoyé!',
-              '',
-              'success'
-            )
+        
           }
           else  {
             this.swalWithBootstrapButtons.fire(
