@@ -11,36 +11,36 @@ export const ROUTES: RouteInfo[] = [
 
   {
     path: "/overview",
-    title: "overview",
+    title: "Accounts",
     rtlTitle: "الرموز",
-    icon: "icon-atom",
+    icon: "icon-credit-card",
     class: ""
   },
-  {
-    path: "/compte/:id/virements",
-    title: "Virement",
-    rtlTitle: "خرائط",
-    icon: "icon-pin",
-    class: "" },
+  // {
+  //   path: "/compte/:id/virements",
+  //   title: "Transfers",
+  //   rtlTitle: "خرائط",
+  //   icon: "icon-send",
+  //   class: "" },
   {
     path: "/vm",
-    title: "VirementMultiple",
+    title: "Multiple Transfer",
     rtlTitle: "إخطارات",
-    icon: "icon-bell-55",
+    icon: "icon-coins",
     class: ""
   },
   {
     path: "/appointment",
     title: "Appointment",
     rtlTitle: "لوحة القيادة",
-    icon: "icon-chart-pie-36",
+    icon: "icon-bell-55",
     class: ""
   },
   {
     path: "/vmTable",
-    title: "VirementMultiple Table",
+    title: "Multiple Transfer Overview",
     rtlTitle: "إخطارات",
-    icon: "icon-bell-55",
+    icon: "icon-atom",
     class: ""
   },
   /*{

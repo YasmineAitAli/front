@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VirementsModule } from 'src/app/virements/module/virements.module';
 import { VirementsService } from 'src/app/virements/service/virements.service';
+import { LoadingService } from '../loading/loading.service';
 
 
 @Component({
@@ -13,7 +14,9 @@ export class VirementsTabComponent implements OnInit {
   Id : string;
   virement : VirementsModule[];
   currentClientName : string;
-  constructor(private virementervice: VirementsService,
+  loading$ = this.loader.loading$;
+
+  constructor(private virementervice: VirementsService,public loader: LoadingService,
     private route: ActivatedRoute) {
     this.Id = this.route.snapshot.params['id'];
    }

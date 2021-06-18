@@ -10,20 +10,19 @@
           
           <div class=" card-body">
             
-            <section id="main-content">
-              <section class="wrapper">
+           
             
             
-                <h1>Bonjour, {{ currentClientName }}</h1>
+                <h4 class=" card-title">My accounts <i class="far fa-credit-card"></i></h4>
                 
                 
                   <div class="cardList">
                     <ng-container *ngFor="let account of accounts" >
                       <div class="cardListItem"> 
-                        <h3><span class="blue">Numéro de compte:</span> {{ account.numero }}</h3>
+                        <h3><span class="blue">Account number:</span> {{ account.numero }}</h3>
                         
                         <h1 class="solde">
-                          Solde : {{ account.solde | number: "1.2-2" }}
+                          Balance : {{ account.solde | number: "1.2-2" }} MAD
                         </h1>
                        
                         <button
@@ -31,16 +30,16 @@
                           color="primary"
                           [routerLink]="['/compte', account.id, 'virements']"
                         >
-                          Accéder au activités
+                          View my activities
                         </button>
                         <button
                           mat-raised-button
                           color="primary"
                          (click)="open(content)"
                          
-                         
+        
                         >
-                          Faire un virement
+                          Transfer money
                         </button>
                   
                         
@@ -54,31 +53,31 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <h3><span class="blue">Numéro de compte débiteur:</span> {{ account.numero }}</h3>
+                            <h3><span class="blue">Debtor account number:</span> {{ account.numero }}</h3>
                                     
                             <h1 class="solde">
-                              Solde : {{ account.solde | number: "1.2-2" }}
+                              Balance : {{ account.solde | number: "1.2-2" }}
                             </h1>
                             <form #f="ngForm"  class="form"   >
                               
                               <div class="form__field">
-                                <label>debiteur :</label>
+                                <label>debtor :</label>
                                 <input  type="text"  ngModel="{{ account.numero }}" name="debiteur" readonly="true" >
                               
                               </div>
                               <mat-error *ngIf="accountNotFound">
-                                Entrez un numero de compte valide.
+                                Account number invalid.
                               </mat-error>
                               <div class="form__field">
                                 
-                               <label>creancier :</label>
+                               <label>creditor :</label>
                                 <input type="text" placeholder="XXXXX" name="creancier" ngModel required>
                               </div>
                             
                               
                               
                               <div class="form__field">
-                                <label>somme a envoyé :</label>
+                                <label>Amount :</label>
                                 <input type="text" placeholder="XX.XX" name="somme" ngModel required>
                               </div>
                         
@@ -94,11 +93,9 @@
                       </div>
                       </ng-container>
                   </div>
-                </section>
-              </section>
+             
             
-      
-
+    
           </div>
           <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
 

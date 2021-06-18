@@ -4,21 +4,21 @@
       <div class=" card">
         <div class=" card-header"></div>
         <div class=" card-body">
+          <h4 class=" card-title"> My Appointments  <i class="far fa-bell"></i></h4>
 
 
         <form #f="ngForm" [formGroup]="Form">
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">motif</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="motif" ></textarea>
+              <label for="exampleFormControlTextarea1">Motif</label>
+              <textarea class="form-control" placeholder="Hello, I want an appointment about ..." id="exampleFormControlTextarea1" rows="3" formControlName="motif" ></textarea>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary" (click)="onAddAppointment(f.value)">Submit</button>
+                <button type="submit" class="btn btn-primary" (click)="onAddAppointment(f.value)">Send</button>
               </div>
           </form> 
    
 
 
-<h1>mes rendez-vous</h1>
 
 
 <table class="table">
@@ -26,8 +26,8 @@
       <tr>
         <th scope="col">id </th>
         <th scope="col">motif</th>
-        <th scope="col">date demande</th>
-        <th scope="col">date rendez-vous</th>
+        <th scope="col">request date</th>
+        <th scope="col">appointment date</th>
 
         <th scope="col">status</th>
       </tr>
@@ -47,6 +47,7 @@
       </tr>
     </tbody>
   </table>
+  <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
 
 </div>
 </div>

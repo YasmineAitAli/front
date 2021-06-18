@@ -20,14 +20,14 @@ export class VirementMultipleTableComponent implements OnInit {
         sortDirection:'desc'
       },
       debiteur: {
-        title: 'compte debiteur',
+        title: 'debtor account',
         valuePrepareFunction: (value: any,row:any,cell:any) => {
           value = cell.newValue.numero
           return value
       },
       },
       vmb: {
-        title: 'Montant',
+        title: 'ammount',
 
         valuePrepareFunction: (value: any,row:any,cell:any) => {
           var arr = []
@@ -40,7 +40,7 @@ export class VirementMultipleTableComponent implements OnInit {
 
       },   
       beneficiaire: {
-        title: 'beneficiaires',
+        title: 'beneficiaries',
         valuePrepareFunction: (value: any,row:any,cell:any) => {
           var arr = []
           row.vmb.map(v=>{
@@ -51,11 +51,14 @@ export class VirementMultipleTableComponent implements OnInit {
       },
       },
       sommeEnv: {
-        title: 'Somme Envoyée'
+        title: 'sum of ammounts',
+        valuePrepareFunction: (value: any,row:any,cell:any) => {
+          return value+' MAD'
+      },
       },
       
       date:{
-        title:'date',
+        title:'created date',
         editable:false,
         addable: false
       },

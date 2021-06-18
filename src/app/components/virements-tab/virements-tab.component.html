@@ -6,17 +6,17 @@
           <div class=" card-body">
 
 
+            <h4 class=" card-title"> My transfers  <i class="far fa-paper-plane"></i></h4>
 
-        <h1>Les virements de , {{ currentClientName }}</h1>
 <table id="table" >
 <thead>
-    <tr><th>id</th><th>creancier</th><th>debiteur</th><th>Envoyé</th><th>reçu</th><th>date</th></tr>
+    <tr><th>Id</th><th>Debtor</th><th>Creditor</th><th>Sent</th><th>Received</th><th>Created date</th></tr>
 </thead>
 <tbody>
     <tr *ngFor="let data of virement">
         <td>{{data.id}}</td>
-        <td>{{data.creancier.numero}}</td>
         <td>{{data.debiteur.numero}}</td>
+        <td>{{data.creancier.numero}}</td>
         <td>{{data.sommeEnv}} </td>
         <td>{{data.sommeRecu}}</td>
         <td>{{data.date  | date }}</td>
@@ -28,6 +28,8 @@
 
 
 </div>
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+
 </div>
 </div>
 </div>

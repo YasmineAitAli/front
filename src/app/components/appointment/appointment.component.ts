@@ -6,6 +6,7 @@ import { Appointment } from 'src/app/appointment/module/appointment';
 import { AppointmentService } from 'src/app/appointment/service/appointment.service';
 import { Client } from 'src/app/client/module/client.module';
 import { ClientService } from 'src/app/client/service/client.service';
+import { LoadingService } from '../loading/loading.service';
 
 @Component({
   selector: 'app-appointment',
@@ -16,7 +17,8 @@ export class AppointmentComponent implements OnInit {
   appointments:Appointment[]=[];
   appointment:Appointment
   clientId:string=sessionStorage.getItem('currentClientId')
-  constructor(private appointmentService:AppointmentService,private clientService:ClientService) { }
+  loading$ = this.loader.loading$;
+  constructor(private appointmentService:AppointmentService,private clientService:ClientService,public loader: LoadingService) { }
   Form = new FormGroup({
     motif: new FormControl('', Validators.required),
   });
@@ -38,7 +40,6 @@ export class AppointmentComponent implements OnInit {
         console.log(error.message);
       }
     );
-
 }
   onAddAppointment(appointment:Appointment){ 
 
