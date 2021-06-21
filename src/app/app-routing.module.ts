@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { LoginClientComponent } from "./components/login-client/login-client.component";
 import { AuthGuardGuard } from "./components/login-client/auth-guard.guard";
 import { AppointmentComponent } from "./components/appointment/appointment.component";
+import { NotfoundComponent } from "./components/notfound/notfound.component";
 
 const routes: Routes = [
   {
@@ -34,7 +35,9 @@ const routes: Routes = [
         path: "",
         loadChildren:
           "./shared/layouts/admin-layout/admin-layout.module#AdminLayoutModule"
-      }
+      },
+      {path: '404', component: NotfoundComponent},
+      {path: '**', redirectTo: '/404'},
     ]
   },
 
