@@ -98,8 +98,14 @@ export class AccountSummaryComponent implements OnInit {
                 (response: VirementsModule) => {
                   console.log(response);
        
-     
-                  this.modalReference.close();
+                  this.currentClientId = sessionStorage.getItem('currentClientId');
+                  this.currentClientName = sessionStorage.getItem('name');
+                  this.clientService.findClientAccounts(this.currentClientId).subscribe(
+                    (data) => {
+                      this.accounts = data;
+                    },
+                    (error) => console.log(error)
+                  );                  this.modalReference.close();
                   this.successAlertNotification();
                   
                 },

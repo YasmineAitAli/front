@@ -27,7 +27,7 @@ export class VirementMultipleTableComponent implements OnInit {
       },
       },
       vmb: {
-        title: 'ammount',
+        title: 'amount',
 
         valuePrepareFunction: (value: any,row:any,cell:any) => {
           var arr = []
@@ -51,7 +51,7 @@ export class VirementMultipleTableComponent implements OnInit {
       },
       },
       sommeEnv: {
-        title: 'sum of ammounts',
+        title: 'sum of amounts',
         valuePrepareFunction: (value: any,row:any,cell:any) => {
           return value+' MAD'
       },
