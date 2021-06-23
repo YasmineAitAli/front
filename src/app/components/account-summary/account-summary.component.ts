@@ -113,7 +113,7 @@ export class AccountSummaryComponent implements OnInit {
                   Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Montant insufisant',
+                    text: 'Montant insufisant alfaqir',
                     
                   })
                 
@@ -126,10 +126,16 @@ export class AccountSummaryComponent implements OnInit {
           );
         },
         (error) => {
-          this.modalReference2.close();
+
           this.accountNotFound = true;
           console.log('accfound', this.accountNotFound);
-          this.form['creancier'].setErrors({ incorrect: true });
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Compte Invalide',
+            
+          })
         }
       );
     }
