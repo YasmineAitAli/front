@@ -37,8 +37,18 @@ mat-label{
   color: black;
 }
 mat-form-field{
-  margin-left: 50px;
+  margin-left: 70px;
 }
+
+mat-grid-list{
+    border: solid 1px;
+}
+mat-error{
+  width: 40%;
+  position: absolute;
+  right: 0px;
+}
+
 .container{
   background-color: white;
   border-radius: 5px;

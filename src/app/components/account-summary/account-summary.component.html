@@ -53,9 +53,9 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <h3><span class="blue">Debtor account number:</span> {{ account.numero }}</h3>
+                            <h3 style="color: black;"><span class="blue">Debtor account number:</span> {{ account.numero }}</h3>
                                     
-                            <h1 class="solde">
+                            <h1 style="color: black;" class="solde">
                               Balance : {{ account.solde | number: "1.2-2" }}
                             </h1>
                             <form #f="ngForm"  class="form"   >
