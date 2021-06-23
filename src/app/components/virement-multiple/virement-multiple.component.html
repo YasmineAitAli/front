@@ -34,7 +34,7 @@
     
             <mat-grid-tile >
                 
-                <h4>Choose account : </h4>
+                <h3>Choose account : </h3>
                 <mat-form-field appearance="fill">
                 <mat-label>Account number</mat-label>
                 <mat-select [(value)]="selected" (selectionChange)="onChange($event)"  formControlName="select">
@@ -47,7 +47,7 @@
             </mat-grid-tile>
             
             <mat-grid-tile>
-                <h4>Created date :</h4>
+                <h3>Created date :</h3>
                 <mat-form-field appearance="fill">
                     
                     <input matInput [matDatepicker]="picker1" [value]="dateCre.value" formControlName="dateCre" disabled>
@@ -68,9 +68,8 @@
             </mat-grid-tile> -->
     
             <mat-grid-tile>
-                <h4>Motif : </h4>
+                <h3>Motif : </h3>
                     <mat-form-field class="motif">
-                        <mat-label>Motif</mat-label>
                         <textarea matInput formControlName="motif"></textarea>
                     </mat-form-field>
                
@@ -80,7 +79,7 @@
             <mat-grid-tile>
                 
 
-                <h4>beneficiaries number :</h4>
+                <h3>beneficiaries number :</h3>
                     <mat-form-field class="example-full-width">
                     <input matInput type="number" formControlName="nombre">
                     </mat-form-field>
@@ -90,7 +89,7 @@
             </mat-grid-tile>
             <mat-grid-tile>
 
-                <h4>Amount : </h4>
+                <h3>Amount : </h3>
                     <mat-form-field class="example-full-width">
                     <input matInput type="number" formControlName="montant">
                     </mat-form-field>

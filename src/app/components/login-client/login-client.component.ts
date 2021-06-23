@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/login/login-service.service';
+import { LoadingService } from '../loading/loading.service';
 
 @Component({
   selector: 'app-login-client',
@@ -9,13 +10,18 @@ import { LoginServiceService } from 'src/app/login/login-service.service';
   styleUrls: ['./login-client.component.css']
 })
 export class LoginClientComponent implements OnInit {
-  form: FormGroup;
-  loginInvalid: boolean;
+  
+  form!: FormGroup;
+  loginInvalid = false;
+  hide:any;
+ 
+  loading$ = this.loader.loading$;
 
   constructor(
     private router: Router,
-    private loginservice : LoginServiceService
-  ) { }
+    private loginservice: LoginServiceService,
+    public loader: LoadingService
+  ) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -30,19 +36,24 @@ export class LoginClientComponent implements OnInit {
     return this.form.get('password');
   }
 
-  checkLogin() {
-    console.log(this.username.value);
+  Login() {
+
     this.loginservice
       .authentificate(this.username.value, this.password.value)
       .subscribe(
         (data) => {
           this.loginInvalid = false;
           this.router.navigate(['/overview']);
+          sessionStorage.setItem('password',btoa(this.password.value));
         },
         (error) => {
           this.loginInvalid = true;
+          console.log('errr')
         }
       );
   }
-
+  logOut() {
+    sessionStorage.removeItem('username');
+    console.log("loggeed out")
+  }
 }
