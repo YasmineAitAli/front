@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, ModuleWithComponentFactories } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Appointment } from '../module/appointment';
@@ -13,7 +13,12 @@ export class AppointmentService {
    }
 
   public addAppointment(appointment: Appointment) {
-    return this.http.post<Appointment>('http://localhost:8091/addAppointment' ,appointment);
+    let username = sessionStorage.getItem('username');
+    let password = atob(sessionStorage.getItem('password'));
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
+    return this.http.post<Appointment>('http://localhost:8091/addAppointment' ,appointment,{headers});
     
   }
  

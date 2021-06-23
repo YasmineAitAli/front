@@ -41,19 +41,24 @@ export class AppointmentComponent implements OnInit {
       }
     );
 }
-  onAddAppointment(appointment:Appointment){ 
+onAddAppointment(appointment:Appointment){ 
 
-this.appointment=this.Form.value
-    this.appointment.status="pending"
-
-    this.appointmentService.addAppointment(this.appointment).subscribe(
-      response =>{ 
-        console.log("Ajout reussi")
-        this.getAppointments()
-       },
-       (error:HttpErrorResponse) =>{ 
-         console.log(error)
-       }
-    )
-  }
+  this.appointment=this.Form.value
+    if(appointment.motif===""){
+      alert("Veuillez saisir votre motif")
+    }
+    else{
+        this.appointment.status="pending"
+  
+        this.appointmentService.addAppointment(this.appointment).subscribe(
+          response =>{ 
+            console.log("Ajout reussi")
+            this.getAppointments()
+          },
+          (error:HttpErrorResponse) =>{ 
+            console.log(error)
+          }
+        )
+      }
+    }
 }

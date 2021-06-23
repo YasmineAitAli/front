@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { VirementMultiple } from '../module/virement-multiple';
@@ -11,14 +11,29 @@ export class VirementMultipleService {
   constructor(private http:HttpClient) { }
 
   public getVirementMultiple() {
-    return this.http.get<VirementMultiple[]>('http://localhost:8091/virement/multiple');
+    let username = sessionStorage.getItem('username');
+    let password = atob(sessionStorage.getItem('password'));
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
+    return this.http.get<VirementMultiple[]>('http://localhost:8091/virement/multiple',{headers});
   }
   
   public saveVirementMultiple(virement:any) {
-    return this.http.post<any>('http://localhost:8091/virement/multiple', virement);
+    let username = sessionStorage.getItem('username');
+    let password = atob(sessionStorage.getItem('password'));
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
+    return this.http.post<any>('http://localhost:8091/virement/multiple', virement,{headers});
   }
   public getVirementById(id:string):Observable<VirementMultiple[]>{
-    return this.http.get<VirementMultiple[]>(`http://localhost:8091/virement/multiple/client/${id}`);
+    let username = sessionStorage.getItem('username');
+    let password = atob(sessionStorage.getItem('password'));
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
+    return this.http.get<VirementMultiple[]>(`http://localhost:8091/virement/multiple/client/${id}`,{headers});
 
   }
 }

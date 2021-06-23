@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { VirementsModule } from '../module/virements.module';
@@ -9,16 +9,26 @@ import { VirementsModule } from '../module/virements.module';
 })
 export class VirementsService {
 
-  private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:8091/virement';
   }
   public findAll(code: string): Observable<VirementsModule[]> {
+    let username = sessionStorage.getItem('username');
+    let password = atob(sessionStorage.getItem('password'));
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
     return this.http.get<VirementsModule[]>(
       'http://localhost:8091/compte/' + code +  '/virements'
-    );
-  } public save(transfer: VirementsModule) {
+      ,{headers});
+  }
+  
+  public save(transfer: VirementsModule) {
+    let username = sessionStorage.getItem('username');
+    let password = atob(sessionStorage.getItem('password'));
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password),
+    });
     console.log("fctsave");
-    return this.http.post<VirementsModule>(this.url + 's', transfer);
+    return this.http.post<VirementsModule>('http://localhost:8091/virements', transfer,{headers});
   }
 }
