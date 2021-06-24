@@ -471,8 +471,7 @@ export class VirementMultipleComponent implements OnInit {
     if (!this.ifBenef && !this.ifMontant) {
       Swal.fire({
         title: 'Confirm your password',
-        input: 'text',
-
+        input: 'password',
         showCancelButton: true,
         confirmButtonText: 'OK',
 
