@@ -16,7 +16,7 @@ export class BeneficiaireService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.post<BeneficiaireModule[]>('http://localhost:8091/beneficiaire' ,beneficiaire,{headers});
+    return this.http.post<BeneficiaireModule[]>('https://ebanking-app.herokuapp.com/beneficiaire' ,beneficiaire,{headers});
     
   }
   public DeleteBenef(id: number): Observable<BeneficiaireModule[]> {
@@ -25,7 +25,7 @@ export class BeneficiaireService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.delete<BeneficiaireModule[]>(`http://localhost:8091/beneficiaire/${id}`,{headers});
+    return this.http.delete<BeneficiaireModule[]>(`https://ebanking-app.herokuapp.com/beneficiaire/${id}`,{headers});
 
   }
   public GetBenefById(id:string): Observable<BeneficiaireModule[]> {
@@ -34,7 +34,7 @@ export class BeneficiaireService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<BeneficiaireModule[]>(`http://localhost:8091/beneficiaire/${id}`,{headers});
+    return this.http.get<BeneficiaireModule[]>(`https://ebanking-app.herokuapp.com/beneficiaire/${id}`,{headers});
     
   }
   public GetAllBenefOfClient(id:string): Observable<BeneficiaireModule[]> {
@@ -43,7 +43,7 @@ export class BeneficiaireService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<BeneficiaireModule[]>(`http://localhost:8091/client/${id}/benef`,{headers});
+    return this.http.get<BeneficiaireModule[]>(`https://ebanking-app.herokuapp.com/client/${id}/benef`,{headers});
     
   }
 }

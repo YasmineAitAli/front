@@ -18,7 +18,7 @@ export class AppointmentService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.post<Appointment>('http://localhost:8091/addAppointment' ,appointment,{headers});
+    return this.http.post<Appointment>('https://ebanking-app.herokuapp.com/addAppointment' ,appointment,{headers});
     
   }
  

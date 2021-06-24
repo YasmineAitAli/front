@@ -18,7 +18,7 @@ export class VirementsService {
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
     return this.http.get<VirementsModule[]>(
-      'http://localhost:8091/compte/' + code +  '/virements'
+      'https://ebanking-app.herokuapp.com/compte/' + code +  '/virements'
       ,{headers});
   }
   
@@ -29,6 +29,6 @@ export class VirementsService {
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
     console.log("fctsave");
-    return this.http.post<VirementsModule>('http://localhost:8091/virements', transfer,{headers});
+    return this.http.post<VirementsModule>('https://ebanking-app.herokuapp.com/virements', transfer,{headers});
   }
 }

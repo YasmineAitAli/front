@@ -17,7 +17,7 @@ export class ClientService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<Accounts[]>('http://localhost:8091/client/' + id + '/comptes',{headers});
+    return this.http.get<Accounts[]>('https://ebanking-app.herokuapp.com/client/' + id + '/comptes',{headers});
   }
 
   public findClientAppointments(id: string): Observable<Appointment[]> {
@@ -26,7 +26,7 @@ export class ClientService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<Appointment[]>('http://localhost:8091/client/' + id + '/appointments',{headers});
+    return this.http.get<Appointment[]>('https://ebanking-app.herokuapp.com/client/' + id + '/appointments',{headers});
   }
 
 }

@@ -15,7 +15,7 @@ export class LoginServiceService {
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
     return this.httpClient
-      .get<Client>('http://localhost:8091/client/username/' + username, {
+      .get<Client>('https://ebanking-app.herokuapp.com/client/username/' + username, {
         headers,
       })
       .pipe(

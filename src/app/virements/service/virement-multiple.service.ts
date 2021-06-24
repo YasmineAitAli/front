@@ -16,7 +16,7 @@ export class VirementMultipleService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<VirementMultiple[]>('http://localhost:8091/virement/multiple',{headers});
+    return this.http.get<VirementMultiple[]>('https://ebanking-app.herokuapp.com/virement/multiple',{headers});
   }
   
   public saveVirementMultiple(virement:any) {
@@ -25,7 +25,7 @@ export class VirementMultipleService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.post<any>('http://localhost:8091/virement/multiple', virement,{headers});
+    return this.http.post<any>('https://ebanking-app.herokuapp.com/virement/multiple', virement,{headers});
   }
   public getVirementById(id:string):Observable<VirementMultiple[]>{
     let username = sessionStorage.getItem('username');
@@ -33,7 +33,7 @@ export class VirementMultipleService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<VirementMultiple[]>(`http://localhost:8091/virement/multiple/client/${id}`,{headers});
+    return this.http.get<VirementMultiple[]>(`https://ebanking-app.herokuapp.com/virement/multiple/client/${id}`,{headers});
 
   }
 }

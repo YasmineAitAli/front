@@ -15,7 +15,7 @@ export class AccountService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<Accounts>("http://localhost:8091/compte" + '/' + id,{headers});
+    return this.http.get<Accounts>("https://ebanking-app.herokuapp.com/compte" + '/' + id,{headers});
   } 
   public findAccountId(id: string): Observable<Accounts[]> {
     let username = sessionStorage.getItem('username');
@@ -23,6 +23,6 @@ export class AccountService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
-    return this.http.get<Accounts[]>("http://localhost:8091/compte" + 's?id=' + id,{headers});
+    return this.http.get<Accounts[]>("https://ebanking-app.herokuapp.com/compte" + 's?id=' + id,{headers});
   }
 }
